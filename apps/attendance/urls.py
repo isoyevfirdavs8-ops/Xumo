@@ -6,7 +6,9 @@ from .views import (
     BoxingAttendanceDetailView,
     TennisAttendanceDetailView,
     AttendanceHistoryView,
-    AttendanceMarkView
+    AttendanceMarkView,
+FootballAttendanceListView,
+FootballAttendanceDetailView,
 )
 
 urlpatterns = [
@@ -39,5 +41,15 @@ path(
     "records/",
     AttendanceMarkView.as_view(),
     name="attendance-mark",
+),
+path(
+    "football/",
+    FootballAttendanceListView.as_view(),
+    name="attendance-football-list",
+),
+path(
+    "football/<int:pk>/",
+    FootballAttendanceDetailView.as_view(),
+    name="attendance-football-detail",
 ),
 ]

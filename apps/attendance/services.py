@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db import IntegrityError, transaction
 from django.utils import timezone
 from rest_framework.exceptions import ValidationError
-
+from apps.football.models import FootballSubscription
 from apps.boxing.models import BoxingSubscription
 from apps.tennis.models import TennisSubscription
 from .access import require_subscription_access
@@ -17,6 +17,10 @@ def mark_attendance(*, sport, subscription_id, date, status, user):
     elif sport == "tennis":
         subscription_model = TennisSubscription
         subscription_field = "tennis_subscription"
+
+    elif sport == "football":
+        subscription_model = FootballSubscription
+        subscription_field = "football_subscription"
 
     else:
         raise ValidationError({

@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.db.models import Q
-
+from decimal import Decimal
 
 class RevenueEntry(models.Model):
     class Category(models.TextChoices):
@@ -40,7 +40,7 @@ class RevenueEntry(models.Model):
     amount = models.DecimalField(
         max_digits=14,
         decimal_places=2,
-        validators=[MinValueValidator(0.01)],
+        validators=[MinValueValidator(Decimal("0.01"))],
     )
 
     # Har bir to'lov manbasining takrorlanmas identifikatori.

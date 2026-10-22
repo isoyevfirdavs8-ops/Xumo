@@ -5,6 +5,8 @@ from .access import (
     get_coach_profile,
     require_subscription_access,
 )
+from apps.football.models import FootballSubscription
+from .serializers import FootballAttendanceStudentSerializer
 from .permissions import IsAttendanceStaff
 from django.db.models import Count, Q
 from rest_framework import generics
@@ -231,6 +233,29 @@ class AttendanceHistoryView(generics.ListAPIView):
                 .order_by("date")
             )
 
+        if sport == "football":
+            if not is_attendance_admin(self.request.user):
+                from rest_framework.exceptions import PermissionDenied
+
+                raise PermissionDenied(
+                    "Football Academy davomatini ko'rishga ruxsat yo'q."
+                )
+
+            subscription = get_object_or_404(
+                FootballSubscription.objects.select_related(
+                    "user", "academy"
+                ),
+                pk=subscription_id,
+                status=FootballSubscription.Status.PAID,
+            )
+
+            return (
+                Attendance.objects
+                .filter(football_subscription=subscription)
+                .select_related("marked_by")
+                .order_by("date")
+            )
+
         raise ValidationError({
             "sport": "Sport turi boxing yoki tennis bo'lishi kerak."
         })
@@ -264,4 +289,36 @@ class AttendanceMarkView(APIView):
                 if created
                 else status.HTTP_200_OK
             ),
+        )
+
+
+class FootballAttendanceListView(generics.ListAPIView):
+    permission_classes = [IsAttendanceManager]
+    serializer_class = FootballAttendanceStudentSerializer
+
+    def get_queryset(self):
+        month = get_selected_month(self.request)
+
+        return (
+            FootballSubscription.objects
+            .filter(
+                month=month,
+                status=FootballSubscription.Status.PAID,
+            )
+            .select_related("user", "academy")
+            .order_by("user__full_name", "id")
+        )
+
+
+class FootballAttendanceDetailView(generics.RetrieveAPIView):
+    permission_classes = [IsAttendanceManager]
+    serializer_class = FootballAttendanceStudentSerializer
+
+    def get_queryset(self):
+        return (
+            FootballSubscription.objects
+            .filter(
+                status=FootballSubscription.Status.PAID,
+            )
+            .select_related("user", "academy")
         )

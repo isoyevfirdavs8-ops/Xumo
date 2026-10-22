@@ -24,6 +24,13 @@ class Attendance(models.Model):
         blank=True,
         related_name="attendance_records",
     )
+    football_subscription = models.ForeignKey(
+        "football.FootballSubscription",
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+        related_name="attendance_records",
+    )
 
     date = models.DateField(db_index=True)
 
@@ -47,14 +54,21 @@ class Attendance(models.Model):
         constraints = [
             models.CheckConstraint(
                 condition=(
-                    Q(
-                        boxing_subscription__isnull=False,
-                        tennis_subscription__isnull=True,
-                    )
-                    | Q(
-                        boxing_subscription__isnull=True,
-                        tennis_subscription__isnull=False,
-                    )
+                        Q(
+                            boxing_subscription__isnull=False,
+                            tennis_subscription__isnull=True,
+                            football_subscription__isnull=True,
+                        )
+                        | Q(
+                    boxing_subscription__isnull=True,
+                    tennis_subscription__isnull=False,
+                    football_subscription__isnull=True,
+                )
+                        | Q(
+                    boxing_subscription__isnull=True,
+                    tennis_subscription__isnull=True,
+                    football_subscription__isnull=False,
+                )
                 ),
                 name="attendance_exactly_one_subscription",
             ),
@@ -68,43 +82,52 @@ class Attendance(models.Model):
                 condition=Q(tennis_subscription__isnull=False),
                 name="unique_tennis_attendance_date",
             ),
+            models.UniqueConstraint(
+                fields=["football_subscription", "date"],
+                condition=Q(football_subscription__isnull=False),
+                name="unique_football_attendance_date",
+            ),
         ]
 
     def clean(self):
         super().clean()
 
-        has_boxing = self.boxing_subscription_id is not None
-        has_tennis = self.tennis_subscription_id is not None
+        subscription_ids = [
+            self.boxing_subscription_id,
+            self.tennis_subscription_id,
+            self.football_subscription_id,
+        ]
 
-        if has_boxing == has_tennis:
+        if sum(value is not None for value in subscription_ids) != 1:
             raise ValidationError(
-                "Bitta davomat faqat boks yoki tennis broniga "
-                "tegishli bo'lishi kerak."
+                "Davomat aynan bitta sport obunasiga tegishli bo'lishi kerak."
             )
 
-        subscription = (
-            self.boxing_subscription
-            if has_boxing
-            else self.tennis_subscription
-        )
+        if self.boxing_subscription_id is not None:
+            subscription = self.boxing_subscription
+        elif self.tennis_subscription_id is not None:
+            subscription = self.tennis_subscription
+        else:
+            subscription = self.football_subscription
 
         if subscription.status != "paid":
             raise ValidationError(
-                "Faqat to'langan bron uchun davomat belgilash mumkin."
+                "Faqat to'langan obuna uchun davomat belgilash mumkin."
             )
 
         if self.date and (
-            self.date.year != subscription.month.year
-            or self.date.month != subscription.month.month
+                self.date.year != subscription.month.year
+                or self.date.month != subscription.month.month
         ):
             raise ValidationError({
-                "date": "Davomat sanasi bron qilingan oyda bo'lishi kerak."
+                "date": "Davomat sanasi obuna oyiga mos bo'lishi kerak."
             })
 
     def __str__(self):
-        subscription = (
-            self.boxing_subscription_id
-            or self.tennis_subscription_id
+        subscription_id = (
+                self.boxing_subscription_id
+                or self.tennis_subscription_id
+                or self.football_subscription_id
         )
 
-        return f"{subscription} | {self.date} | {self.status}"
+        return f"{subscription_id} | {self.date} | {self.status}"

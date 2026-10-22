@@ -29,6 +29,8 @@ class ClickTransaction(models.Model):
             ("restaurant", "Restaurant"),
             ("competition", "Competition"),
             ("football", "Football"),
+            ("football_academy", "Football Academy"),
+            ("hostel", "Hostel"),
         ],
     )
 

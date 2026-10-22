@@ -1,7 +1,7 @@
 
 from decimal import Decimal, InvalidOperation
 
-
+from apps.football.models import FootballSubscription
 from django.utils import timezone
 from .click_verification import (
     ClickVerificationUnavailable,
@@ -13,6 +13,12 @@ from apps.restaurant_orders.models import RestaurantOrder
 from apps.finance.payment_settlement import (
     settle_restaurant_payment,
     settle_competition_payment,
+)
+from apps.hostel.models import HostelReservation
+from apps.hostel.payment_services import confirm_hostel_payment
+
+from apps.football.academy_payment_services import (
+    confirm_football_academy_payment,
 )
 from apps.football.payment_services import (
     confirm_football_payment,
@@ -163,6 +169,41 @@ def validate_order_state(info):
 
         if booking.hold_expires_at <= now:
             raise ClickError(-9, "Booking expired")
+
+    elif info.category == "football_academy":
+        subscription = FootballSubscription.objects.get(
+            pk=info.order_id
+        )
+
+        if subscription.status != FootballSubscription.Status.PENDING_PAYMENT:
+            raise ClickError(-9, "Subscription unavailable")
+
+        if (
+            subscription.payment_expires_at is None
+            or subscription.payment_expires_at <= now
+        ):
+            raise ClickError(-9, "Subscription expired")
+    elif info.category == "hostel":
+        reservation = HostelReservation.objects.get(
+            pk=info.order_id
+        )
+
+        if reservation.status != (
+            HostelReservation.Status.PENDING_PAYMENT
+        ):
+            raise ClickError(
+                -9,
+                "Hostel reservation unavailable",
+            )
+
+        if (
+            reservation.payment_expires_at is None
+            or reservation.payment_expires_at <= now
+        ):
+            raise ClickError(
+                -9,
+                "Hostel reservation expired",
+            )
 
 
 
@@ -432,6 +473,20 @@ def _complete_click_payment_atomic(data, verification=None):
             provider_transaction_id=tx.click_trans_id,
             verified_amount=tx.amount,
         )
+    elif tx.category == "football_academy":
+        confirm_football_academy_payment(
+            subscription_id=tx.order_id,
+            provider="click",
+            provider_transaction_id=tx.click_trans_id,
+            verified_amount=tx.amount,
+        )
+    elif tx.category == "hostel":
+        confirm_hostel_payment(
+            reservation_id=tx.order_id,
+            provider="click",
+            provider_transaction_id=tx.click_trans_id,
+            verified_amount=tx.amount,
+        )
 
     else:
         raise ClickError(-5, "Unknown category")
@@ -467,7 +522,18 @@ def lock_click_order(info):
             .select_for_update()
             .get(pk=info.order_id)
         )
-
+    if info.category == "football_academy":
+        return (
+            FootballSubscription.objects
+            .select_for_update()
+            .get(pk=info.order_id)
+        )
+    if info.category == "hostel":
+        return (
+            HostelReservation.objects
+            .select_for_update()
+            .get(pk=info.order_id)
+        )
     raise ClickError(-5, "Unknown order category")
 
 

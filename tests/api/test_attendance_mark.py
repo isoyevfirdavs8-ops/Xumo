@@ -8,14 +8,16 @@ from apps.attendance.services import mark_attendance
 
 
 def test_invalid_sport():
-    with pytest.raises(ValidationError):
+    with pytest.raises(ValidationError) as exc_info:
         mark_attendance(
-            sport="football",
+            sport="invalid_sport",
             subscription_id=1,
             date=date(2026, 10, 19),
             status="present",
             user=None,
         )
+
+    assert "sport" in exc_info.value.detail
 
 
 @patch("apps.attendance.services.timezone.localdate")

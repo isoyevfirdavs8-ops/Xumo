@@ -68,6 +68,7 @@ INSTALLED_APPS = [
 "apps.payments",
 "apps.about",
 "apps.attendance",
+"apps.hostel.apps.HostelConfig",
 
 ]
 
@@ -238,6 +239,15 @@ CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = "Asia/Tashkent"
 
+
+# Hostel: muddati tugagan bronlarni har daqiqada bo'shatish.
+CELERY_BEAT_SCHEDULE = {
+    **globals().get("CELERY_BEAT_SCHEDULE", {}),
+    "hostel-expire-reservations-every-minute": {
+        "task": "hostel.expire_reservations",
+        "schedule": 60.0,
+    },
+}
 
 from decouple import config
 

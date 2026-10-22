@@ -23,6 +23,7 @@ urlpatterns = [
     path("api/v1/site/about/",include("apps.about.urls")),
     path("api/v1/telegram/",include("apps.telegram_bot.urls")),
     path("api/v1/attendance/",include("apps.attendance.urls")),
+    path("api/v1/hostel/", include("apps.hostel.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(

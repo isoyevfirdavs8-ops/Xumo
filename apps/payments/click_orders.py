@@ -1,10 +1,10 @@
 
 from dataclasses import dataclass
 from decimal import Decimal
-
+from apps.football.models import FootballSubscription
 from django.core.exceptions import ValidationError
 from django.db import DataError
-
+from apps.hostel.models import HostelReservation
 from apps.football.models import HourlyBooking
 from apps.restaurant_orders.models import RestaurantOrder
 from apps.competitions.models import TicketOrder
@@ -131,6 +131,42 @@ def get_click_order(merchant_trans_id):
             order_id=str(booking.pk),
             amount=booking.price_snapshot,
             status=booking.status,
+            provider="click",
+        )
+    if category == "football_academy":
+        subscription = find_click_order(
+            FootballSubscription,
+            order_id,
+        )
+
+        if subscription is None:
+            raise PaymentVerificationError(
+                "Futbol akademiyasi obunasi topilmadi."
+            )
+
+        return ClickOrderInfo(
+            category=category,
+            order_id=str(subscription.pk),
+            amount=subscription.price_snapshot,
+            status=subscription.status,
+            provider="click",
+        )
+    if category == "hostel":
+        reservation = find_click_order(
+            HostelReservation,
+            order_id,
+        )
+
+        if reservation is None:
+            raise PaymentVerificationError(
+                "Yotoqxona rezervatsiyasi topilmadi."
+            )
+
+        return ClickOrderInfo(
+            category="hostel",
+            order_id=str(reservation.pk),
+            amount=reservation.total_price,
+            status=reservation.status,
             provider="click",
         )
 

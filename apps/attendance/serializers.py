@@ -1,5 +1,5 @@
 from rest_framework import serializers
-
+from apps.football.models import FootballSubscription
 from apps.boxing.models import BoxingSubscription
 from apps.tennis.models import TennisSubscription
 from .models import Attendance
@@ -81,7 +81,7 @@ class TennisAttendanceStudentSerializer(serializers.ModelSerializer):
 
 class AttendanceMarkSerializer(serializers.Serializer):
     sport = serializers.ChoiceField(
-        choices=["boxing", "tennis"]
+        choices=["boxing", "tennis", "football"]
     )
     subscription_id = serializers.IntegerField(min_value=1)
     date = serializers.DateField()
@@ -89,3 +89,31 @@ class AttendanceMarkSerializer(serializers.Serializer):
         choices=["present", "absent"]
     )
 
+
+
+
+class FootballAttendanceStudentSerializer(serializers.ModelSerializer):
+    student_name = serializers.CharField(
+        source="user.full_name",
+        read_only=True,
+    )
+    phone_number = serializers.CharField(
+        source="user.phone_number",
+        read_only=True,
+    )
+    academy_name = serializers.CharField(
+        source="academy.name",
+        read_only=True,
+    )
+
+    class Meta:
+        model = FootballSubscription
+        fields = [
+            "id",
+            "student_name",
+            "phone_number",
+            "academy_name",
+            "month",
+            "status",
+            "paid_at",
+        ]
