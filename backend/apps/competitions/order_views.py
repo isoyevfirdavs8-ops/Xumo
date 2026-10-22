@@ -52,6 +52,12 @@ class MyTicketOrdersView(generics.ListAPIView):
     serializer_class = TicketOrderDetailSerializer
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return TicketOrder.objects.none()
+
+        if not self.request.user.is_authenticated:
+            return TicketOrder.objects.none()
+
         return (
             TicketOrder.objects
             .filter(user=self.request.user)

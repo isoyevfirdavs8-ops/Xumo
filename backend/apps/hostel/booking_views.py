@@ -70,6 +70,12 @@ class MyHostelReservationsView(generics.ListAPIView):
     serializer_class = HostelReservationSerializer
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return HostelReservation.objects.none()
+
+        if not self.request.user.is_authenticated:
+            return HostelReservation.objects.none()
+
         return (
             HostelReservation.objects
             .filter(user=self.request.user)

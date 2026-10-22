@@ -77,3 +77,13 @@ def paid_click_order(click_order):
     )
 
     return click_order
+
+@pytest.fixture(autouse=True)
+def disable_ssl_redirect_for_tests(settings):
+    """
+    Test so'rovlarining HTTP -> HTTPS redirect
+    bo'lishini oldini oladi.
+
+    Production HTTPS sozlamalariga ta'sir qilmaydi.
+    """
+    settings.SECURE_SSL_REDIRECT = False

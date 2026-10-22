@@ -186,6 +186,8 @@ class AttendanceHistoryView(generics.ListAPIView):
     serializer_class = AttendanceRecordSerializer
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return Attendance.objects.none()
         sport = self.kwargs["sport"]
         subscription_id = self.kwargs["subscription_id"]
 
