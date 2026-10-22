@@ -1,0 +1,36 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Django
+*.sqlite3
+media/
+staticfiles/
+*.log
+
+# Frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Temporary files
+*.swp
+*.tmp

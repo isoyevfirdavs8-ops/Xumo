@@ -1,0 +1,256 @@
+
+.football-page {
+  min-height: 100vh;
+  background: #f4f7fb;
+  padding: 48px 20px 90px;
+  color: #14243a;
+}
+
+.football-container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.football-heading {
+  margin-bottom: 32px;
+}
+
+.football-heading > span {
+  color: #1e9b64;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.football-heading h1 {
+  font-size: clamp(28px, 4vw, 46px);
+  margin: 10px 0;
+}
+
+.football-heading p {
+  color: #718096;
+}
+
+.football-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.football-field-card {
+  border: 2px solid transparent;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(20, 36, 58, 0.06);
+  transition: 0.2s;
+}
+
+.football-field-card:hover {
+  transform: translateY(-3px);
+}
+
+.football-field-card.selected {
+  border-color: #14945e;
+}
+
+.football-field-card img,
+.football-field-placeholder {
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+}
+
+.football-field-placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #146b45, #39ac77);
+  font-size: 52px;
+}
+
+.football-field-content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.football-field-content strong {
+  font-size: 17px;
+}
+
+.football-field-content span {
+  font-size: 13px;
+  color: #718096;
+}
+
+.football-field-content b {
+  color: #118452;
+}
+
+.football-booking-panel {
+  background: white;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 12px 35px rgba(20, 36, 58, 0.06);
+}
+
+.football-panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.football-panel-top h2 {
+  margin: 0 0 8px;
+}
+
+.football-panel-top p {
+  color: #718096;
+}
+
+.football-panel-top label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.football-panel-top input {
+  border: 1px solid #dce4ed;
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+}
+
+.football-slots {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.football-slot {
+  padding: 17px 8px;
+  border: 1px solid #d9e7df;
+  border-radius: 12px;
+  background: #effaf4;
+  color: #15794d;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.football-slot span {
+  font-size: 12px;
+}
+
+.football-slot.booked {
+  background: #fff1f1;
+  color: #b93434;
+  border-color: #f3d0d0;
+}
+
+.football-slot.closed,
+.football-slot.past {
+  background: #f0f2f5;
+  color: #8a96a5;
+  border-color: #e5e9ee;
+}
+
+.football-slot.selected {
+  background: #148c59;
+  color: white;
+  border-color: #148c59;
+}
+
+.football-slot:disabled {
+  cursor: not-allowed;
+}
+
+.football-booking-bottom {
+  margin-top: 30px;
+  border-top: 1px solid #edf0f4;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.football-booking-bottom > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.football-booking-bottom > div span {
+  color: #718096;
+}
+
+.football-booking-bottom > div strong {
+  font-size: 25px;
+}
+
+.football-booking-bottom button {
+  border: none;
+  border-radius: 12px;
+  padding: 15px 30px;
+  background: #148c59;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.football-booking-bottom button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.football-message {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #edf6ff;
+  color: #175c94;
+}
+
+@media (max-width: 768px) {
+  .football-page {
+    padding: 25px 14px 60px;
+  }
+
+  .football-booking-panel {
+    padding: 18px;
+  }
+
+  .football-panel-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .football-slots {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .football-booking-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .football-booking-bottom button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .football-slots {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

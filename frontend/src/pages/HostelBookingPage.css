@@ -1,0 +1,480 @@
+
+.hostel-page {
+  min-height: 100vh;
+  padding: 48px 20px 90px;
+  background: #f5f7fb;
+  color: #15243b;
+}
+
+.hostel-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.hostel-hero {
+  padding: 48px;
+  border-radius: 24px;
+  color: #fff;
+  background: linear-gradient(125deg, #0c2345, #174b77);
+  margin-bottom: 28px;
+}
+
+.hostel-eyebrow {
+  color: #b7d3ef;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hostel-hero-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.hostel-hero h1 {
+  font-size: clamp(30px, 5vw, 52px);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.hostel-hero p {
+  color: #dce8f6;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hostel-hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.hostel-hero-features span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.hostel-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.hostel-booking-panel,
+.hostel-side-panel,
+.hostel-success {
+  background: #fff;
+  border: 1px solid #e4eaf2;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 35px rgba(12, 35, 69, 0.04);
+}
+
+.hostel-section-title {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 12px 0 22px;
+  color: #12365b;
+}
+
+.hostel-section-title:not(:first-child) {
+  margin-top: 36px;
+}
+
+.hostel-section-title h2 {
+  font-size: 19px;
+  margin: 0;
+}
+
+.hostel-date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hostel-date-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.hostel-date-grid input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #d5dfeb;
+  background: #fff;
+  color: #15243b;
+  border-radius: 12px;
+  padding: 14px;
+  font: inherit;
+}
+
+.hostel-date-grid input:focus {
+  outline: 2px solid #4a93d5;
+  outline-offset: 2px;
+}
+
+.hostel-capacity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hostel-capacity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 20px 8px;
+  border: 2px solid #e1e8f0;
+  border-radius: 14px;
+  background: #fff;
+  color: #173552;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.hostel-capacity-card:hover:not(:disabled) {
+  border-color: #72a8d8;
+}
+
+.hostel-capacity-card.selected {
+  background: #eaf4ff;
+  border-color: #2075b9;
+}
+
+.hostel-capacity-card strong {
+  font-size: 14px;
+}
+
+.hostel-capacity-card span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.hostel-capacity-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.hostel-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.hostel-stat-card {
+  padding: 20px;
+  border-radius: 14px;
+  background: #f1f6fb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hostel-stat-card span {
+  color: #65758b;
+  font-size: 13px;
+}
+
+.hostel-stat-card strong {
+  font-size: 32px;
+  color: #143a60;
+}
+
+.hostel-quantity {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hostel-quantity button {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: #f1f6fb;
+  border: 1px solid #d7e2ee;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.hostel-quantity button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hostel-quantity strong {
+  min-width: 24px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.hostel-quantity > span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.hostel-submit-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 17px;
+  border: 0;
+  border-radius: 12px;
+  background: #1263a1;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hostel-submit-button:hover:not(:disabled) {
+  background: #0c4f83;
+}
+
+.hostel-submit-button:disabled {
+  background: #9cb1c3;
+  cursor: not-allowed;
+}
+
+.hostel-disclaimer {
+  font-size: 12px;
+  text-align: center;
+  color: #718096;
+  margin: 14px 0 0;
+}
+
+.hostel-error,
+.hostel-notice {
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin: 15px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.hostel-error {
+  background: #fff0f0;
+  color: #a32626;
+}
+
+.hostel-notice {
+  background: #f0f5fa;
+  color: #53657a;
+}
+
+.hostel-side-panel h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+}
+
+.hostel-side-panel > p {
+  color: #66768b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.hostel-room-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.hostel-room-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #e5ebf2;
+  border-radius: 12px;
+  padding: 13px;
+}
+
+.hostel-room-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #eaf3fc;
+  color: #1465a4;
+  flex-shrink: 0;
+}
+
+.hostel-room-item > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.hostel-room-item strong {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.hostel-room-item span,
+.hostel-room-item small {
+  color: #68788b;
+  font-size: 12px;
+}
+
+.hostel-side-footer,
+.hostel-payment-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 25px;
+  padding: 15px;
+  background: #edf6ff;
+  border-radius: 12px;
+  color: #25547b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.hostel-success {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hostel-success > svg {
+  color: #18875a;
+}
+
+.hostel-success h2 {
+  margin: 15px 0 8px;
+}
+
+.hostel-success > p {
+  color: #617187;
+  line-height: 1.7;
+}
+
+.hostel-reservation-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 26px 0;
+}
+
+.hostel-reservation-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #f4f7fb;
+  padding: 16px;
+  border-radius: 12px;
+  min-width: 0;
+}
+
+.hostel-reservation-info span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.hostel-reservation-info strong {
+  overflow-wrap: anywhere;
+}
+
+.hostel-booked-rooms {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hostel-booked-rooms > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #e3eaf2;
+  border-radius: 12px;
+}
+
+.hostel-booked-rooms strong {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.hostel-secondary-button {
+  margin-top: 24px;
+  padding: 13px 22px;
+  background: #153e65;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@keyframes hostel-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.hostel-spin {
+  animation: hostel-rotate 1s linear infinite;
+}
+
+@media (max-width: 900px) {
+  .hostel-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hostel-page {
+    padding: 20px 12px 60px;
+  }
+
+  .hostel-hero {
+    padding: 30px 20px;
+    border-radius: 17px;
+  }
+
+  .hostel-hero-features {
+    gap: 12px;
+  }
+
+  .hostel-booking-panel,
+  .hostel-side-panel,
+  .hostel-success {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .hostel-section-title h2 {
+    font-size: 16px;
+  }
+
+  .hostel-capacity-grid {
+    gap: 7px;
+  }
+
+  .hostel-capacity-card {
+    padding: 16px 4px;
+  }
+
+  .hostel-capacity-card strong {
+    font-size: 12px;
+  }
+
+  .hostel-capacity-card span {
+    font-size: 11px;
+  }
+
+  .hostel-date-grid,
+  .hostel-reservation-info {
+    grid-template-columns: 1fr;
+  }
+}

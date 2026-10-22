@@ -1,0 +1,439 @@
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #07162b;
+  color: #ffffff;
+  isolation: isolate;
+}
+
+.hero-banner-background,
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-banner-background {
+  z-index: -2;
+}
+
+.hero-banner-background picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-banner-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  animation: heroImageAppear 0.7s ease;
+}
+
+.hero-banner-overlay {
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 15, 31, 0.94) 0%,
+      rgba(5, 15, 31, 0.79) 38%,
+      rgba(5, 15, 31, 0.34) 75%,
+      rgba(5, 15, 31, 0.2) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(5, 15, 31, 0.45),
+      transparent 40%
+    );
+}
+
+.hero-banner-inner {
+  width: min(100% - 48px, 1240px);
+  margin: 0 auto;
+  padding: 90px 0 110px;
+}
+
+.hero-banner-content {
+  max-width: 760px;
+  animation: heroContentAppear 0.55s ease;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #dfb76b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 34px;
+  height: 2px;
+  background: #dfb76b;
+}
+
+.hero-banner-content h1,
+.hero-banner-empty h1 {
+  font-size: clamp(42px, 5.5vw, 84px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 0 0 25px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.hero-banner-description {
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 0 36px;
+  color: #e1e6ee;
+}
+
+.hero-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 17px 28px;
+  background: #d6a856;
+  color: #09172c;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 5px;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.hero-banner-button:hover {
+  background: #edc47c;
+  transform: translateY(-2px);
+}
+
+.hero-banner-controls {
+  position: absolute;
+  bottom: 35px;
+  right: max(24px, calc((100vw - 1240px) / 2));
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-banner-controls > button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hero-banner-controls > button:hover {
+  border-color: #d6a856;
+  color: #d6a856;
+}
+
+.hero-banner-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-banner-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hero-banner-dots button.active {
+  width: 26px;
+  background: #d6a856;
+}
+
+.hero-banner-loading,
+.hero-banner-empty {
+  min-height: 500px;
+}
+
+.hero-banner-loading {
+  justify-content: center;
+  color: #dfb76b;
+}
+
+.hero-banner-empty {
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(214, 168, 86, 0.16),
+      transparent 35%
+    ),
+    #07162b;
+}
+
+@keyframes heroContentAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroImageAppear {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    min-height: 570px;
+  }
+
+  .hero-banner-inner {
+    width: min(100% - 36px, 1240px);
+    padding: 80px 0 110px;
+  }
+
+  .hero-banner-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 15, 31, 0.91),
+      rgba(5, 15, 31, 0.55)
+    );
+  }
+
+  .hero-banner-content h1,
+  .hero-banner-empty h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .hero-banner-controls {
+    right: 18px;
+    bottom: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner {
+    min-height: 540px;
+  }
+
+  .hero-banner-inner {
+    padding: 65px 0 110px;
+  }
+
+  .hero-banner-description {
+    line-height: 1.6;
+  }
+
+  .hero-banner-button {
+    padding: 15px 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner-image,
+  .hero-banner-content {
+    animation: none;
+  }
+
+  .hero-banner-button {
+    transition: none;
+  }
+}
+
+
+/* FC BUKHARA — RESPONSIVE HERO */
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .hero-banner {
+    min-height: 570px;
+  }
+
+  .hero-banner-inner {
+    width: calc(100% - 80px);
+    padding: 85px 0 105px;
+  }
+
+  .hero-banner-content {
+    max-width: 640px;
+  }
+
+  .hero-banner-content h1 {
+    font-size: clamp(48px, 5.5vw, 70px);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .hero-banner {
+    min-height: 560px;
+  }
+
+  .hero-banner-inner {
+    width: calc(100% - 72px);
+    padding: 80px 0 105px;
+  }
+
+  .hero-banner-content {
+    max-width: 580px;
+  }
+
+  .hero-banner-content h1 {
+    font-size: clamp(44px, 6vw, 64px);
+    line-height: 1.1;
+  }
+
+  .hero-banner-description {
+    font-size: 17px;
+    max-width: 480px;
+  }
+
+  .hero-banner-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 15, 31, 0.94) 0%,
+      rgba(5, 15, 31, 0.75) 55%,
+      rgba(5, 15, 31, 0.28) 100%
+    );
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-banner {
+    min-height: 620px;
+    min-height: min(720px, calc(100svh - 66px));
+    align-items: center;
+  }
+
+  .hero-banner-background picture,
+  .hero-banner-background img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-banner-image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-banner-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 15, 31, 0.38) 0%,
+        rgba(5, 15, 31, 0.65) 32%,
+        rgba(5, 15, 31, 0.91) 100%
+      );
+  }
+
+  .hero-banner-inner {
+    width: calc(100% - 40px);
+    padding: 80px 0 105px;
+  }
+
+  .hero-banner-content {
+    max-width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow::before {
+    width: 23px;
+  }
+
+  .hero-banner-content h1,
+  .hero-banner-empty h1 {
+    font-size: clamp(38px, 10vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -1.4px;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+  }
+
+  .hero-banner-description {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    color: #e4e8f0;
+  }
+
+  .hero-banner-button {
+    min-height: 50px;
+    padding: 14px 22px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+
+  .hero-banner-controls {
+    bottom: 24px;
+    left: 20px;
+    right: 20px;
+    justify-content: center;
+  }
+
+  .hero-banner-controls > button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-banner-loading,
+  .hero-banner-empty {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-banner-inner {
+    width: calc(100% - 32px);
+  }
+
+  .hero-banner-content h1,
+  .hero-banner-empty h1 {
+    font-size: 36px;
+  }
+
+  .hero-banner-description {
+    font-size: 14px;
+  }
+
+  .hero-banner-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}

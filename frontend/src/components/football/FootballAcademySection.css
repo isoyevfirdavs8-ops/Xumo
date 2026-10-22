@@ -1,0 +1,144 @@
+
+.football-academy-section {
+  max-width: 1100px;
+  margin: 32px auto 80px;
+  padding: 0 16px;
+}
+
+.football-academy-hero {
+  padding: 52px 36px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #10251f, #08774f);
+  color: #fff;
+  margin-bottom: 28px;
+}
+
+.football-academy-hero span {
+  color: #9ff3c5;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.football-academy-hero h2 {
+  margin: 14px 0;
+  font-size: clamp(30px, 4vw, 46px);
+}
+
+.football-academy-hero p {
+  max-width: 620px;
+  color: #d8f4e5;
+  line-height: 1.8;
+}
+
+.football-academy-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 300px), 1fr)
+  );
+  gap: 24px;
+}
+
+.football-academy-card {
+  overflow: hidden;
+  border: 1px solid #e1e9e6;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.football-academy-cover {
+  height: 220px;
+}
+
+.football-academy-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.football-academy-placeholder {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #065f46, #00a56c);
+  color: white;
+}
+
+.football-academy-body {
+  padding: 24px;
+}
+
+.football-academy-body h3 {
+  font-size: 21px;
+  margin: 0 0 12px;
+  color: #17283d;
+}
+
+.football-academy-body p {
+  color: #74839a;
+  line-height: 1.7;
+  min-height: 54px;
+}
+
+.football-academy-price {
+  color: #008e60;
+  font-size: 25px;
+  font-weight: 800;
+  margin: 22px 0;
+}
+
+.football-academy-price small {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.football-academy-body button {
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  border-radius: 10px;
+  background: #008e60;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.football-academy-body button:hover {
+  background: #006c49;
+}
+
+.football-academy-body button:focus-visible {
+  outline: 3px solid #7ae4b5;
+  outline-offset: 3px;
+}
+
+.football-academy-message,
+.football-academy-error {
+  padding: 24px;
+  text-align: center;
+}
+
+.football-academy-error {
+  color: #c62828;
+}
+
+@media (max-width: 768px) {
+  .football-academy-section {
+    margin-top: 24px;
+    margin-bottom: 48px;
+  }
+
+  .football-academy-hero {
+    padding: 34px 22px;
+  }
+
+  .football-academy-cover {
+    height: 190px;
+  }
+
+  .football-academy-body {
+    padding: 20px;
+  }
+}

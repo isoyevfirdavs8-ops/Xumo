@@ -1,0 +1,254 @@
+
+.boxing-public {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 30px 20px 80px;
+  color: #182638;
+}
+
+.boxing-public-hero {
+  padding: 65px 40px;
+  border-radius: 24px;
+  background: linear-gradient(125deg, #1d202b, #702b2c);
+  color: white;
+  margin-bottom: 32px;
+}
+
+.boxing-public-hero span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffb6a8;
+}
+
+.boxing-public-hero h1 {
+  font-size: clamp(32px, 5vw, 54px);
+  margin: 15px 0;
+}
+
+.boxing-public-hero p {
+  max-width: 650px;
+  line-height: 1.8;
+  color: #f1d9d7;
+}
+
+.boxing-public-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 320px), 1fr)
+  );
+  gap: 24px;
+}
+
+.boxing-public-card {
+  overflow: hidden;
+  border: 2px solid #e5e9ef;
+  border-radius: 20px;
+  background: white;
+  transition: border-color .2s, transform .2s;
+}
+
+.boxing-public-card.selected {
+  border-color: #b83d35;
+}
+
+.boxing-public-card:hover {
+  transform: translateY(-3px);
+}
+
+.boxing-public-image-wrap {
+  height: 245px;
+  background: #e7e9ed;
+}
+
+.boxing-public-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boxing-public-placeholder {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 75px;
+  background: linear-gradient(135deg, #422629, #b7433a);
+}
+
+.boxing-public-content {
+  padding: 25px;
+}
+
+.boxing-public-content h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.boxing-public-content p {
+  color: #69798a;
+  line-height: 1.7;
+  min-height: 55px;
+}
+
+.boxing-public-price {
+  margin: 22px 0;
+  color: #b43d35;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.boxing-public-price small {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.boxing-public-content button,
+.boxing-main-button,
+.boxing-payment-buttons button,
+.boxing-payment-confirm button,
+.boxing-payment-panel > button {
+  border: 0;
+  border-radius: 11px;
+  padding: 14px 18px;
+  background: #b43d35;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.boxing-public-content button {
+  width: 100%;
+}
+
+.boxing-public button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.boxing-booking-box {
+  margin-top: 36px;
+  padding: 32px;
+  background: white;
+  border: 1px solid #e4e9ef;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(20, 30, 40, .05);
+  scroll-margin-top: 110px;
+}
+
+.boxing-booking-box h2 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.boxing-booking-box label {
+  display: block;
+  margin: 22px 0 9px;
+  font-weight: 700;
+}
+
+.boxing-booking-box input[type="month"] {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  padding: 13px;
+  border: 1px solid #d7dfe7;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.boxing-booking-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 25px 0;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff4f2;
+}
+
+.boxing-booking-total strong {
+  color: #aa352e;
+  font-size: 22px;
+}
+
+.boxing-booking-note {
+  line-height: 1.7;
+  color: #6d7b8b;
+}
+
+.boxing-main-button {
+  margin-top: 15px;
+}
+
+.boxing-subscription-result,
+.boxing-payment-panel,
+.boxing-payment-success {
+  margin-top: 25px;
+  padding: 22px;
+  border: 1px solid #e1e7ee;
+  border-radius: 14px;
+}
+
+.boxing-payment-buttons,
+.boxing-payment-confirm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.boxing-payment-confirm h4,
+.boxing-payment-confirm p {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.boxing-payment-success {
+  background: #eaf8f0;
+  border-color: #b9e6cc;
+  color: #11653c;
+}
+
+.boxing-public-error,
+.boxing-public-notice {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.boxing-public-error {
+  color: #a72b2b;
+  background: #fff0f0;
+}
+
+.boxing-public-notice {
+  color: #11653c;
+  background: #eaf8f0;
+}
+
+@media (max-width: 768px) {
+  .boxing-public {
+    padding: 15px 12px 50px;
+  }
+
+  .boxing-public-hero {
+    padding: 40px 22px;
+  }
+
+  .boxing-booking-box {
+    padding: 20px;
+  }
+
+  .boxing-booking-total {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .boxing-main-button,
+  .boxing-payment-buttons button,
+  .boxing-payment-confirm button {
+    width: 100%;
+  }
+}

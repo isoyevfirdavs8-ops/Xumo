@@ -1,0 +1,379 @@
+
+.boxing-admin {
+  padding: 28px;
+  color: #17283d;
+}
+
+.boxing-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.boxing-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #b23c32;
+}
+
+.boxing-admin-header h1 {
+  margin: 8px 0;
+  font-size: clamp(26px, 3vw, 36px);
+}
+
+.boxing-admin-header p,
+.boxing-card-description {
+  color: #78879a;
+}
+
+.boxing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: .2s ease;
+}
+
+.boxing-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.boxing-btn-primary {
+  background: #b43f35;
+  color: white;
+}
+
+.boxing-btn-primary:hover {
+  background: #982e26;
+}
+
+.boxing-btn-secondary {
+  background: #edf2f7;
+  color: #24354b;
+}
+
+.boxing-btn-danger {
+  background: #fff0f0;
+  color: #b83b3b;
+}
+
+.boxing-btn-activate {
+  background: #e4f8ee;
+  color: #087c49;
+}
+
+.boxing-btn-upload {
+  position: relative;
+  background: #eaf4ff;
+  color: #21669c;
+}
+
+.boxing-btn-upload input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.boxing-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.boxing-stat {
+  background: white;
+  border: 1px solid #e7edf3;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.boxing-stat span {
+  font-size: 13px;
+  color: #78879a;
+}
+
+.boxing-stat strong {
+  font-size: 30px;
+}
+
+.boxing-cards {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, 320px), 1fr)
+  );
+  gap: 20px;
+}
+
+.boxing-card {
+  background: white;
+  border: 1px solid #e7edf3;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.boxing-card-cover {
+  height: 200px;
+  position: relative;
+  background: #e9eef3;
+}
+
+.boxing-card-cover > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boxing-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #532822, #c84d3f);
+  color: white;
+}
+
+.boxing-status {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 7px 11px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  background: #edf2f7;
+}
+
+.boxing-status.active {
+  color: #087b48;
+  background: #e7f8ef;
+}
+
+.boxing-status.maintenance {
+  color: #966300;
+  background: #fff4d9;
+}
+
+.boxing-status.archived {
+  color: #b63838;
+  background: #fff0f0;
+}
+
+.boxing-card-body {
+  padding: 20px;
+}
+
+.boxing-card-body h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.boxing-card-description {
+  line-height: 1.6;
+  min-height: 45px;
+}
+
+.boxing-card-price {
+  margin: 18px 0;
+  color: #b23c32;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.boxing-card-price small {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.boxing-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 16px 0;
+}
+
+.boxing-gallery-item {
+  width: 76px;
+  height: 68px;
+  position: relative;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.boxing-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boxing-primary-badge {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background: #f8ca3e;
+  color: #433300;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+.boxing-gallery-actions {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  display: flex;
+  gap: 3px;
+}
+
+.boxing-gallery-actions button {
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  background: rgba(20, 30, 40, .85);
+  color: white;
+  cursor: pointer;
+}
+
+.boxing-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.boxing-form-panel {
+  background: white;
+  border: 1px solid #e7edf3;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 26px;
+}
+
+.boxing-form-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.boxing-icon-button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.boxing-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.boxing-form-grid label,
+.boxing-description-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.boxing-form-grid input,
+.boxing-form-grid select,
+.boxing-description-label textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dce4ec;
+  border-radius: 9px;
+  font: inherit;
+}
+
+.boxing-description-label {
+  margin-top: 16px;
+}
+
+.boxing-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.boxing-alert {
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.boxing-alert-error {
+  background: #fff0f0;
+  color: #b63838;
+}
+
+.boxing-alert-success {
+  background: #e7f8ef;
+  color: #087b48;
+}
+
+.boxing-empty {
+  padding: 45px 20px;
+  border-radius: 16px;
+  background: white;
+  text-align: center;
+  color: #78879a;
+}
+
+.boxing-empty svg {
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .boxing-admin {
+    padding: 15px;
+  }
+
+  .boxing-admin-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .boxing-stats {
+    gap: 8px;
+  }
+
+  .boxing-stat {
+    padding: 13px;
+  }
+
+  .boxing-stat strong {
+    font-size: 24px;
+  }
+
+  .boxing-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .boxing-card-actions .boxing-btn {
+    flex: 1 1 auto;
+  }
+
+  .boxing-stats span {
+    font-size: 11px;
+  }
+}

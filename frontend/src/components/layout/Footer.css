@@ -1,0 +1,381 @@
+
+/* ===============================
+   FC BUKHARA FOOTER
+================================ */
+
+.fc-footer {
+  width: 100%;
+  background: #15161d;
+  color: #ffffff;
+  padding: 0;
+  font-family: inherit;
+}
+
+.fc-footer *,
+.fc-footer *::before,
+.fc-footer *::after {
+  box-sizing: border-box;
+}
+
+.fc-footer-container {
+  width: min(1280px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* MAIN LAYOUT */
+
+.fc-footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 80px;
+  padding: 68px 0 90px;
+}
+
+/* BRAND */
+
+.fc-footer-logo {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.fc-footer-logo:hover {
+  color: #d8b56b;
+}
+
+.fc-footer-description {
+  max-width: 310px;
+  margin: 20px 0 30px;
+  color: #a2a8b8;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* SOCIAL ICONS */
+
+.fc-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.fc-footer-social {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #343644;
+  border-radius: 50%;
+  background: #232530;
+  color: #d8b56b;
+}
+
+/* SECTION HEADINGS */
+
+.fc-footer-title {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 27px;
+  padding-bottom: 10px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.fc-footer-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 45px;
+  height: 3px;
+  border-radius: 4px;
+  background: #d8b56b;
+}
+
+/* NAVIGATION */
+
+.fc-footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.fc-footer-links li {
+  margin: 0;
+  padding: 0;
+}
+
+.fc-footer-links a {
+  display: inline-block;
+  color: #b0b5c2;
+  font-size: 16px;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.fc-footer-links a:hover {
+  color: #d8b56b;
+  transform: translateX(5px);
+}
+
+/* CONTACT */
+
+.fc-footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fc-footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #b0b5c2;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.fc-footer-contact-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #232530;
+  color: #d8b56b;
+}
+
+/* BOTTOM */
+
+.fc-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 100px;
+  border-top: 1px solid #30323b;
+}
+
+.fc-footer-bottom p {
+  margin: 0;
+  color: #8f96a7;
+  font-size: 15px;
+}
+
+.fc-footer-top {
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #d8b56b;
+  color: #101827;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.fc-footer-top:hover {
+  background: #f0cd82;
+  transform: translateY(-4px);
+}
+
+.fc-footer-top:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .fc-footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 60px 0;
+  }
+
+  .fc-footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .fc-footer-container {
+    width: calc(100% - 36px);
+  }
+
+  .fc-footer-main {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding: 45px 0 50px;
+  }
+
+  .fc-footer-brand {
+    grid-column: auto;
+  }
+
+  .fc-footer-logo {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+
+  .fc-footer-description {
+    font-size: 14px;
+    margin: 16px 0 24px;
+  }
+
+  .fc-footer-title {
+    font-size: 18px;
+    margin-bottom: 22px;
+  }
+
+  .fc-footer-links {
+    gap: 14px;
+  }
+
+  .fc-footer-links a {
+    font-size: 14px;
+  }
+
+  .fc-footer-contact-item {
+    font-size: 14px;
+  }
+
+  .fc-footer-bottom {
+    min-height: 100px;
+    padding: 24px 0;
+    gap: 20px;
+  }
+
+  .fc-footer-bottom p {
+    max-width: 250px;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .fc-footer-top {
+    width: 44px;
+    height: 44px;
+  }
+}
+.fc-footer-contact-item a {
+  color: #b0b5c2;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.fc-footer-contact-item a:hover {
+  color: #d8b56b;
+}
+
+.fc-footer-contact-item > span:last-child {
+  overflow-wrap: anywhere;
+}
+
+/* 4 ta telefonni 2x2 ko‘rinishda joylashtirish */
+.fc-footer-phones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 20px;
+  width: 100%;
+}
+
+.fc-footer-phone-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.fc-footer-phone-item .fc-footer-contact-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.fc-footer-phone-item a {
+  font-size: 13px;
+  white-space: nowrap;
+  color: #b0b5c2;
+  text-decoration: none;
+}
+
+.fc-footer-phone-item a:hover {
+  color: #d8b56b;
+}
+
+/* Telefon ekranlarida ham 2 ustun */
+@media (max-width: 600px) {
+  .fc-footer-phones-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 8px;
+  }
+
+  .fc-footer-phone-item {
+    gap: 5px;
+  }
+
+  .fc-footer-phone-item .fc-footer-contact-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .fc-footer-phone-item .fc-footer-contact-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .fc-footer-phone-item a {
+    font-size: 11px;
+  }
+}
+
+.fc-footer-contact-item a {
+  color: #b0b5c2;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.fc-footer-contact-item a:hover {
+  color: #d8b56b;
+}
+
+.fc-footer-contact-item > span:last-child {
+  overflow-wrap: anywhere;
+}
+
+.fc-footer-social {
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+a.fc-footer-social:hover {
+  background: #d8b56b;
+  color: #111827;
+  transform: translateY(-3px);
+}

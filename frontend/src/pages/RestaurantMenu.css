@@ -1,0 +1,254 @@
+
+
+
+.restaurant-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.restaurant-eyebrow {
+  color: #d8b56b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.restaurant-heading h1 {
+  margin: 12px 0;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.restaurant-heading p {
+  color: #aebbd0;
+  margin: 0;
+}
+
+.restaurant-cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border: 1px solid #384660;
+  border-radius: 12px;
+  color: #f5f5f5;
+  background: #172443;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.restaurant-cart-link:hover {
+  border-color: #d8b56b;
+  color: #d8b56b;
+}
+
+.restaurant-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.restaurant-tabs button {
+  padding: 11px 19px;
+  border: 1px solid #34435e;
+  border-radius: 30px;
+  background: #172443;
+  color: #e5eaf3;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.restaurant-tabs button:hover,
+.restaurant-tabs button.active {
+  background: #d8b56b;
+  border-color: #d8b56b;
+  color: #111d35;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.restaurant-food {
+  min-width: 0;
+  overflow: hidden;
+  background: #14213d;
+  border: 1px solid #293a57;
+  border-radius: 18px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.restaurant-food:hover {
+  transform: translateY(-5px);
+  border-color: #d8b56b;
+}
+
+.restaurant-food-image {
+  width: 100%;
+  height: 225px;
+  background: #1e2e49;
+  overflow: hidden;
+}
+
+.restaurant-food-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.restaurant-food-placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d8b56b;
+}
+
+.restaurant-food-body {
+  padding: 20px;
+}
+
+.restaurant-food-body h2 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  color: #ffffff;
+}
+
+.restaurant-food-description {
+  color: #aab8cb;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 44px;
+  margin: 0 0 20px;
+}
+
+.restaurant-food-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.restaurant-food-meta strong {
+  color: #e5be73;
+  font-size: 20px;
+}
+
+.restaurant-food-meta span {
+  color: #aab8cb;
+  font-size: 12px;
+}
+
+.restaurant-add-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  padding: 14px;
+  border: none;
+  border-radius: 11px;
+  background: #d8b56b;
+  color: #111d35;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.restaurant-add-button:hover {
+  background: #efcd88;
+}
+
+.restaurant-add-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.restaurant-message {
+  padding: 28px;
+  background: #14213d;
+  border: 1px solid #293a57;
+  border-radius: 14px;
+  color: #dce4f0;
+}
+
+@media (max-width: 950px) {
+  .restaurant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .restaurant-page {
+    padding: 28px 15px 65px;
+  }
+
+  .restaurant-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .restaurant-food-image {
+    height: 240px;
+  }
+
+  .restaurant-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .restaurant-tabs button {
+    flex-shrink: 0;
+  }
+}
+
+
+/* RESTAURANT FULL WIDTH FIX */
+
+.restaurant-page {
+  width: 100%;
+  max-width: none;
+  min-height: calc(100vh - 76px);
+  margin: 0;
+
+  /* Ota konteyner tor bo‘lsa ham viewport bo‘ylab yoyiladi */
+  width: 100vw;
+  width: 100dvw;
+  margin-left: calc(50% - 50vw);
+  margin-left: calc(50% - 50dvw);
+
+  padding: 48px 24px 90px;
+  background: #09132d;
+  color: #f7f8fc;
+}
+
+.restaurant-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .restaurant-page {
+    padding: 28px 15px 65px;
+  }
+}

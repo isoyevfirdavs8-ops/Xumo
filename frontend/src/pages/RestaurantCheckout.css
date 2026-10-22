@@ -1,0 +1,111 @@
+
+.restaurant-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+  color: #f5f7fb;
+}
+
+.restaurant-page h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 18px 0;
+}
+
+.restaurant-checkout-card {
+  background: #10243b;
+  border: 1px solid #2b415b;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.restaurant-checkout-line,
+.restaurant-checkout-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #2b415b;
+}
+
+.restaurant-checkout-total {
+  font-size: 22px;
+  border-bottom: none;
+}
+
+.restaurant-payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  margin: 12px 0;
+  background: #172f4b;
+  border: 1px solid #38516a;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.restaurant-payment-option input {
+  accent-color: #d7aa5a;
+  width: 18px;
+  height: 18px;
+}
+
+.restaurant-checkout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 17px 24px;
+  border: none;
+  border-radius: 12px;
+  background: #d7aa5a;
+  color: #10243b;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.restaurant-checkout-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.restaurant-success {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 32px;
+  border: 1px solid #2b415b;
+  border-radius: 20px;
+  background: #10243b;
+  text-align: center;
+}
+
+.restaurant-success .restaurant-checkout-line {
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .restaurant-page {
+    padding: 24px 14px 56px;
+  }
+
+  .restaurant-checkout-card,
+  .restaurant-success {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .restaurant-checkout-line {
+    font-size: 14px;
+  }
+}
+.restaurant-page {
+  width: 100vw;
+  width: 100dvw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-left: calc(50% - 50dvw);
+  background: #09132d;
+}

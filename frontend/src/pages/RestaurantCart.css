@@ -1,0 +1,398 @@
+
+.restaurant-cart-page {
+  min-height: calc(100vh - 76px);
+  width: 100%;
+  background: #09132d;
+  color: #f8f9fc;
+  padding: 50px 24px 100px;
+}
+
+.restaurant-cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.restaurant-cart-heading {
+  margin-bottom: 34px;
+}
+
+.restaurant-cart-heading span {
+  color: #d8b56b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.restaurant-cart-heading h1 {
+  font-size: clamp(30px, 4vw, 46px);
+  margin: 12px 0;
+  color: #fff;
+}
+
+.restaurant-cart-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #d8b56b;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.restaurant-cart-back:hover {
+  color: #f5d58e;
+}
+
+.restaurant-cart-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 28px;
+  align-items: start;
+}
+
+.restaurant-cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.restaurant-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #14213d;
+  border: 1px solid #2b3c58;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.restaurant-cart-item-image {
+  width: 140px;
+  height: 125px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #223451;
+}
+
+.restaurant-cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.restaurant-cart-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.restaurant-cart-item-info h2 {
+  margin: 0 0 9px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.restaurant-cart-unit-price {
+  color: #aebbd0;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.restaurant-cart-stock {
+  color: #9caec5;
+  font-size: 12px;
+}
+
+.restaurant-cart-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.restaurant-cart-quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #3c4e6a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.restaurant-cart-quantity button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #233653;
+  color: #fff;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.restaurant-cart-quantity button:hover {
+  background: #344e70;
+}
+
+.restaurant-cart-quantity span {
+  min-width: 42px;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.restaurant-cart-subtotal {
+  color: #e5be73;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.restaurant-cart-summary {
+  background: #14213d;
+  border: 1px solid #2b3c58;
+  border-radius: 16px;
+  padding: 25px;
+  position: sticky;
+  top: 100px;
+}
+
+.restaurant-cart-summary h2 {
+  color: #fff;
+  font-size: 22px;
+  margin: 0 0 22px;
+}
+
+.restaurant-cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 15px 0;
+  color: #aebbd0;
+}
+
+.restaurant-cart-summary-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 22px;
+  margin-top: 22px;
+  border-top: 1px solid #34435e;
+  font-size: 19px;
+  font-weight: 800;
+  color: #e5be73;
+}
+
+.restaurant-cart-checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  margin-top: 25px;
+  border-radius: 11px;
+  background: #d8b56b;
+  color: #111d35;
+  text-decoration: none;
+  font-weight: 800;
+  transition: background 0.2s;
+}
+
+.restaurant-cart-checkout:hover {
+  background: #efcd88;
+}
+
+.restaurant-cart-empty {
+  text-align: center;
+  background: #14213d;
+  border: 1px solid #2b3c58;
+  border-radius: 18px;
+  padding: 70px 24px;
+}
+
+.restaurant-cart-empty h2 {
+  color: #fff;
+}
+
+.restaurant-cart-empty p {
+  color: #aebbd0;
+}
+
+@media (max-width: 900px) {
+  .restaurant-cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-cart-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .restaurant-cart-page {
+    padding: 30px 15px 70px;
+  }
+
+  .restaurant-cart-item {
+    align-items: flex-start;
+    gap: 13px;
+    padding: 13px;
+  }
+
+  .restaurant-cart-item-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .restaurant-cart-item-info h2 {
+    font-size: 17px;
+  }
+
+  .restaurant-cart-item-bottom {
+    align-items: flex-start;
+  }
+
+  .restaurant-cart-subtotal {
+    font-size: 16px;
+  }
+}
+.restaurant-cart-page {
+  width: 100vw;
+  width: 100dvw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-left: calc(50% - 50dvw);
+  background: #09132d;
+}
+
+
+/* SAVATCHA: QO‘SHIMCHA PROFESSIONAL STYLES */
+
+.restaurant-cart-page {
+  min-height: calc(100vh - 76px);
+  width: 100%;
+  max-width: none;
+  background: #09132d;
+  color: #f8f9fc;
+}
+
+.restaurant-cart-heading p {
+  color: #aebbd0;
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
+.restaurant-cart-item-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.restaurant-cart-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #5a394b;
+  border-radius: 9px;
+  background: rgba(239, 68, 68, 0.08);
+  color: #fb7185;
+  cursor: pointer;
+}
+
+.restaurant-cart-remove:hover {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+.restaurant-cart-image-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #d8b56b;
+}
+
+.restaurant-cart-quantity button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.restaurant-cart-checkout {
+  gap: 10px;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.restaurant-cart-checkout:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.restaurant-cart-note {
+  color: #94a3b8;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.6;
+  margin: 16px 0 0;
+}
+
+.restaurant-cart-error,
+.restaurant-cart-stock-error {
+  color: #fda4af;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.restaurant-cart-error {
+  padding: 15px;
+  margin-bottom: 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+}
+
+.restaurant-cart-stock-error {
+  margin: 8px 0;
+}
+
+.restaurant-cart-empty {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.restaurant-cart-empty > svg {
+  color: #d8b56b;
+}
+
+.restaurant-cart-empty .restaurant-cart-checkout {
+  max-width: 250px;
+  margin: 24px auto 0;
+}
+
+@media (max-width: 600px) {
+  .restaurant-cart-heading {
+    margin-bottom: 24px;
+  }
+
+  .restaurant-cart-item-image {
+    width: 95px;
+    height: 105px;
+  }
+
+  .restaurant-cart-item {
+    gap: 12px;
+  }
+
+  .restaurant-cart-item-info h2 {
+    font-size: 17px;
+  }
+
+  .restaurant-cart-summary {
+    padding: 20px;
+  }
+}

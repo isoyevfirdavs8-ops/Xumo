@@ -1,0 +1,62 @@
+
+name: xumo-testing
+
+services:
+  db_test:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: xumo_test_control
+      POSTGRES_USER: xumo_test_user
+      POSTGRES_PASSWORD: ${XUMO_TEST_DB_PASSWORD:?Set XUMO_TEST_DB_PASSWORD}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U xumo_test_user -d xumo_test_control
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    tmpfs:
+      - /var/lib/postgresql/data
+
+  redis_test:
+    image: redis:7-alpine
+    command:
+      - redis-server
+      - --save
+      - ""
+      - --appendonly
+      - "no"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  pytest:
+    image: xumo-backend:local
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.testing
+      SECRET_KEY: ${SECRET_KEY:?Test SECRET_KEY required}
+      DB_HOST: db_test
+      DB_PORT: "5432"
+      DB_NAME: xumo_test_control
+      DB_USER: xumo_test_user
+      DB_PASSWORD: ${XUMO_TEST_DB_PASSWORD:?Set XUMO_TEST_DB_PASSWORD}
+      REDIS_URL: redis://redis_test:6379/0
+      CELERY_BROKER_URL: redis://redis_test:6379/1
+      CELERY_RESULT_BACKEND: redis://redis_test:6379/2
+    volumes:
+      - ./backend:/app:ro
+    working_dir: /app
+    command:
+      - python
+      - -m
+      - pytest
+      - -q
+      - -p
+      - "no:cacheprovider"
+    depends_on:
+      db_test:
+        condition: service_healthy
+      redis_test:
+        condition: service_healthy

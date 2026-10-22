@@ -1,0 +1,743 @@
+
+/* =========================================
+   FC BUKHARA — PROFESSIONAL HEADER
+   ========================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #101f39;
+  border-bottom: 1px solid rgba(217, 182, 109, 0.22);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 86px;
+  margin: 0 auto;
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: #d9b66d;
+  text-decoration: none;
+}
+
+.brand svg {
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-text strong {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  line-height: 1.1;
+}
+
+.brand-text span {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  color: #b9c4d7;
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+   ========================================= */
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  gap: clamp(12px, 1.6vw, 28px);
+}
+
+.header-nav > a {
+  position: relative;
+  color: #f1f3f7;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.header-nav > a:hover {
+  color: #d9b66d;
+}
+
+.header-nav > a::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d9b66d;
+  transition: width 0.2s ease;
+}
+
+.header-nav > a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   RIGHT ACTIONS
+   ========================================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.header-actions > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #d9b66d;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.header-actions > a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   AUTH BUTTONS
+   ========================================= */
+
+.desktop-auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 4px;
+}
+
+.register-btn,
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.desktop-auth-actions .register-btn,
+.mobile-auth-actions .register-btn {
+  background: #d9b66d;
+  border: 1px solid #d9b66d;
+  color: #101f39;
+}
+
+.desktop-auth-actions .register-btn:hover,
+.mobile-auth-actions .register-btn:hover {
+  background: #f1cc83;
+  border-color: #f1cc83;
+  color: #101f39;
+  transform: translateY(-1px);
+}
+
+.desktop-auth-actions .login-btn,
+.mobile-auth-actions .login-btn {
+  background: transparent;
+  border: 1px solid #d9b66d;
+  color: #d9b66d;
+}
+
+.desktop-auth-actions .login-btn:hover,
+.mobile-auth-actions .login-btn:hover {
+  background: rgba(217, 182, 109, 0.12);
+  color: #f1cc83;
+}
+
+/* Mobile auth hidden on desktop */
+
+.mobile-auth-actions {
+  display: none;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+   ========================================= */
+
+.mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  background: transparent;
+  border: 1px solid rgba(217, 182, 109, 0.3);
+  border-radius: 8px;
+  color: #d9b66d;
+  cursor: pointer;
+}
+
+.mobile-menu-button:hover {
+  background: rgba(217, 182, 109, 0.1);
+}
+
+/* =========================================
+   TABLET / SMALL DESKTOP
+   ========================================= */
+
+@media (max-width: 1200px) {
+  .header-container {
+    padding: 0 20px;
+    gap: 14px;
+  }
+
+  .brand-text strong {
+    font-size: 17px;
+  }
+
+  .brand-text span {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .header-nav {
+    gap: 12px;
+  }
+
+  .header-nav > a {
+    font-size: 12px;
+  }
+
+  .register-btn,
+  .login-btn {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   MOBILE / TABLET NAVIGATION
+   ========================================= */
+
+@media (max-width: 1050px) {
+  .header-container {
+    min-height: 74px;
+    padding: 0 20px;
+  }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 24px 20px 28px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+
+    background: #101f39;
+    border-top: 1px solid #34455f;
+    border-bottom: 1px solid rgba(217, 182, 109, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+
+    max-height: calc(100dvh - 74px);
+    overflow-y: auto;
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-nav > a {
+    width: fit-content;
+    font-size: 15px;
+  }
+
+  .desktop-auth-actions {
+    display: none;
+  }
+
+  .mobile-auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #34455f;
+  }
+
+  .mobile-auth-actions .register-btn,
+  .mobile-auth-actions .login-btn {
+    display: flex;
+    width: 100%;
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  .header-container {
+    min-height: 68px;
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-text strong {
+    font-size: 15px;
+    letter-spacing: 0.6px;
+  }
+
+  .brand-text span {
+    font-size: 7px;
+    letter-spacing: 1.6px;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .header-actions > a svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .mobile-menu-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-nav {
+    max-height: calc(100dvh - 68px);
+    padding: 20px 16px 24px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+.site-header a:focus-visible,
+.site-header button:focus-visible {
+  outline: 2px solid #f1cc83;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header *,
+  .site-header *::before,
+  .site-header *::after {
+    transition: none !important;
+  }
+}
+
+
+/* FC BUKHARA — RESPONSIVE HEADER */
+
+@media (max-width: 1024px) {
+  .header-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: 76px;
+    padding: 0 28px;
+    gap: 20px;
+  }
+
+  .brand {
+    flex-shrink: 0;
+  }
+
+  .brand-text strong {
+    font-size: 17px;
+  }
+
+  .brand-text span {
+    font-size: 9px;
+    letter-spacing: 1.6px;
+  }
+
+  .header-nav {
+    gap: 18px;
+  }
+
+  .header-nav > a {
+    font-size: 13px;
+  }
+
+  .header-actions {
+    gap: 15px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    position: relative;
+    z-index: 100;
+  }
+
+  .header-container {
+    min-height: 72px;
+    padding: 0 22px;
+    position: relative;
+  }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 110;
+    padding: 16px 22px 22px;
+    background: #0d1936;
+    border-top: 1px solid rgba(214, 168, 86, 0.18);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+  }
+
+  .header-nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .header-nav > a {
+    display: block;
+    width: 100%;
+    padding: 13px 12px;
+    font-size: 14px;
+    color: #e8edf5;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .header-nav > a:hover {
+    background: rgba(214, 168, 86, 0.1);
+    color: #d6a856;
+  }
+
+  .desktop-auth-actions {
+    display: none !important;
+  }
+
+  .mobile-auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .mobile-auth-actions a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: none;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(214, 168, 86, 0.25);
+    border-radius: 9px;
+    background: transparent;
+    color: #d6a856;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    min-height: 66px;
+    padding: 0 14px;
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 7px;
+    min-width: 0;
+  }
+
+  .brand > svg {
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+  }
+
+  .brand-text strong {
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+  }
+
+  .brand-text span {
+    font-size: 7px;
+    letter-spacing: 1.1px;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .header-actions > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .header-actions > a svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .mobile-menu-button {
+    width: 36px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .header-nav {
+    padding: 12px 14px 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-text strong {
+    font-size: 12px;
+  }
+
+  .brand-text span {
+    font-size: 6px;
+  }
+
+  .header-actions {
+    gap: 4px;
+  }
+}
+.header-nav .header-nav-link.active {
+  color: #d7aa5a;
+}
+
+.header-nav .header-nav-link:hover {
+  color: #d7aa5a;
+}
+
+
+.header-cart-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: #e3b960;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.header-cart-button:hover {
+  color: #f7d28a;
+  background: rgba(227, 185, 96, 0.1);
+}
+
+.header-cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 19px;
+  height: 19px;
+  padding: 0 4px;
+
+  background: #ef3340;
+  color: #ffffff;
+
+  border: 2px solid #101a3b;
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.header-cart-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  color: #d8b56b;
+  text-decoration: none;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.header-cart-button:hover {
+  color: #f5d58e;
+  background: rgba(216, 181, 107, 0.1);
+}
+
+.header-cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+
+  border-radius: 999px;
+  border: 2px solid #101a3b;
+  background: #ef3340;
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+/* XUMO BRAND LOGO */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  border-radius: 50%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.brand-text strong {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text strong {
+    font-size: 16px;
+  }
+
+  .brand-text span {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text strong {
+    font-size: 14px;
+  }
+}
